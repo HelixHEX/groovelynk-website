@@ -3,15 +3,18 @@ import ReactDOM from "react-dom/client";
 import App from "./pages/App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
+import { UserProvider } from "./utils/UserContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ChakraProvider>
-      <App />
-    </ChakraProvider>
+    <UserProvider>
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
+    </UserProvider>
   </React.StrictMode>
 );
 
