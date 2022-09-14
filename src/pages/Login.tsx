@@ -5,6 +5,7 @@ const Login = () => {
   return (
     <>
       <Button
+        pos="fixed"
         rounded={100}
         width={[200, 300, 500]}
         height={[70, 70, 85]}

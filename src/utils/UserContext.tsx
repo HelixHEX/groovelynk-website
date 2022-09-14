@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import axios, { AxiosResponse } from "axios";
 import Cookies from "universal-cookie";
-
+// import { Flex } from "@chakra-ui/react";
 const cookies = new Cookies();
 
 const UserContext = createContext({});
@@ -28,6 +28,7 @@ const UserProvider = (props: PropsWithChildren) => {
           }
         });
     } else {
+      setLoading(false);
       setUser(null);
     }
   }, []);

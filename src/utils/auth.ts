@@ -19,9 +19,12 @@ const login = () => {
     }).toString();
 };
 
-const logout = () => {
+type logoutProps = {
+  setUser: any;
+}
+const logout = (props:logoutProps) => {
   cookies.remove('access_token');
-  window.location.href='/'
+  props.setUser(null)
 }
 
 export { login, logout };

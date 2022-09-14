@@ -62,7 +62,7 @@ const Navbar = () => {
                     </Center>
                     <br />
                     <MenuDivider />
-                    <MenuItem onClick={logout}>Logout</MenuItem>
+                    {/* <MenuItem onClick={logout}>Logout</MenuItem> */}
                   </MenuList>
                 </Menu>
               ) : null}
