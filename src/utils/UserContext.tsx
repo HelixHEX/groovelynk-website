@@ -6,6 +6,7 @@ import React, {
 } from "react";
 import axios, { AxiosResponse } from "axios";
 import Cookies from "universal-cookie";
+import Loading from "../components/Loading";
 // import { Flex } from "@chakra-ui/react";
 const cookies = new Cookies();
 
@@ -20,10 +21,13 @@ const UserProvider = (props: PropsWithChildren) => {
       axios
         .get(`http://localhost:5000/user/me?access_token=${access_token}`)
         .then((res: AxiosResponse) => {
-          setLoading(false);
           if (res.status === 200) {
-            setUser(res.data);
+            setTimeout(() => {
+              setUser(res.data);
+              setLoading(false);
+            }, 2000);
           } else {
+            setLoading(false);
             setUser(null);
           }
         });
@@ -35,7 +39,7 @@ const UserProvider = (props: PropsWithChildren) => {
 
   return (
     <UserContext.Provider value={[user, setUser]}>
-      {loading ? <div>Loading...</div> : props.children}
+      {loading ? <Loading /> : props.children}
     </UserContext.Provider>
   );
 };
