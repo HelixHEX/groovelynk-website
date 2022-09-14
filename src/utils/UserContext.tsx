@@ -30,7 +30,10 @@ const UserProvider = (props: PropsWithChildren) => {
             setLoading(false);
             setUser(null);
           }
-        });
+        }).catch(() => {
+          setLoading(false);
+          setUser(null);
+        })
     } else {
       setLoading(false);
       setUser(null);
