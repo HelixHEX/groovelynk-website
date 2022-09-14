@@ -19,7 +19,7 @@ const UserProvider = (props: PropsWithChildren) => {
     const access_token = cookies.get("access_token");
     if (access_token) {
       axios
-        .get(`http://localhost:5000/user/me?access_token=${access_token}`)
+        .get(`${process.env.REACT_APP_API_URL}/user/me?access_token=${access_token}`)
         .then((res: AxiosResponse) => {
           if (res.status === 200) {
             setTimeout(() => {
