@@ -1,16 +1,19 @@
-import { Text, Button } from "@chakra-ui/react"
-import BackBtn from "../components/BackBtn"
-import PageContainer from "../components/PageContainer"
+import { Text, Button, Flex } from "@chakra-ui/react";
+import BackBtn from "../components/BackBtn";
+import PageContainer from "../components/PageContainer";
 
 const Checkout = () => {
-  return(
+  return (
     <>
       <PageContainer>
-        {/* <Text>Ho</Text> */}
-        <BackBtn/>
+        <Flex>
+          <BackBtn />
+          <Text>Checkout</Text>
+        </Flex>
+        <Button>hi</Button>
       </PageContainer>
     </>
-  )
-}
+  );
+};
 
-export default Checkout
+export default Checkout;

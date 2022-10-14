@@ -6,7 +6,7 @@ const PageContainer: React.FC<PropsWithChildren> = ({ children }) => {
   const lightGray = useLightGray()
   return (
     <>
-      <Flex p={8} w="100%" h="auto" minH="100vh" bg={lightGray}>
+      <Flex flexDir={'column'} p={8} w="100%" h="auto" minH="100vh" bg={lightGray}>
         {children}
       </Flex>
     </>
