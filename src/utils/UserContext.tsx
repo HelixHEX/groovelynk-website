@@ -13,7 +13,7 @@ const cookies = new Cookies();
 const UserContext = createContext({});
 
 const UserProvider = (props: PropsWithChildren) => {
-  const [user, setUser] = useState<any>();
+  const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const access_token = cookies.get("access_token");
@@ -42,7 +42,7 @@ const UserProvider = (props: PropsWithChildren) => {
 
   return (
     <UserContext.Provider value={[user, setUser]}>
-      {loading ? <Loading /> : props.children}
+       {loading ? <Loading /> : props.children}
     </UserContext.Provider>
   );
 };
