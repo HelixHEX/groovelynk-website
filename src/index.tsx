@@ -4,16 +4,22 @@ import App from "./pages/App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import { UserProvider } from "./utils/UserContext";
-
+import Checkout from "./pages/Checkout";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      <UserProvider>
-        <App />
-      </UserProvider>
+      {/* <UserProvider> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </Router>
+      {/* </UserProvider> */}
     </ChakraProvider>
   </React.StrictMode>
 );

@@ -13,13 +13,13 @@ const cookies = new Cookies();
 const UserContext = createContext({});
 
 const UserProvider = (props: PropsWithChildren) => {
-  const [user, setUser] = useState<any>();
+  const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const access_token = cookies.get("access_token");
     if (access_token) {
       axios
-        .get(`http://localhost:5000/user/me?access_token=${access_token}`)
+        .get(`${process.env.REACT_APP_API_URL}/user/me?access_token=${access_token}`)
         .then((res: AxiosResponse) => {
           if (res.status === 200) {
             setTimeout(() => {
@@ -42,7 +42,7 @@ const UserProvider = (props: PropsWithChildren) => {
 
   return (
     <UserContext.Provider value={[user, setUser]}>
-      {loading ? <Loading /> : props.children}
+       {loading ? <Loading /> : props.children}
     </UserContext.Provider>
   );
 };
