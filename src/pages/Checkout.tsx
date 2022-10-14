@@ -1,4 +1,5 @@
 import { Text, Button } from "@chakra-ui/react"
+import BackBtn from "../components/BackBtn"
 import PageContainer from "../components/PageContainer"
 
 const Checkout = () => {
@@ -6,7 +7,7 @@ const Checkout = () => {
     <>
       <PageContainer>
         {/* <Text>Ho</Text> */}
-        <Button bg='white'>hi</Button>
+        <BackBtn/>
       </PageContainer>
     </>
   )
