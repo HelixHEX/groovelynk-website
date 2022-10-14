@@ -1,9 +1,13 @@
-import { Text } from "@chakra-ui/react"
+import { Text, Button } from "@chakra-ui/react"
+import PageContainer from "../components/PageContainer"
 
 const Checkout = () => {
   return(
     <>
-      <Text>hi</Text>
+      <PageContainer>
+        {/* <Text>Ho</Text> */}
+        <Button bg='white'>hi</Button>
+      </PageContainer>
     </>
   )
 }
