@@ -13,22 +13,17 @@ const Musicbox = () => {
     <>
       <Flex w={"100%"} h="100vh">
         <Flex
-          w={"20%"}
           h="100vh"
-          flexDir={"column"}
-          align="end"
           fontSize={"3xl"}
         >
-          <Tabs variant={"unstyled"}>
-            <TabList flexDir={"column"}>
+          <Tabs variant={"unstyled"} flexDir='row' >
+            <TabList area-orientation="vertical">
               <Tab _selected={{ color: "white", bg: "blue.500" }}>One</Tab>
               <Tab _selected={{ color: "white", bg: "blue.500" }}>Two</Tab>
               <Tab _selected={{ color: "white", bg: "blue.500" }}>Three</Tab>
             </TabList>
-        </Flex>
-        <Flex w={["100%"]} h="100vh" bg="white" borderRadius={"5px"}>
-          
-            <TabPanels>
+
+            <TabPanels flexDir={'row'}>
               <TabPanel>
                 <Flex>
                   {/* <lastMonth /> */}
