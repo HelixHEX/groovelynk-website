@@ -1,17 +1,18 @@
-import { Flex, Icon, Text } from "@chakra-ui/react";
+import { Flex, Icon, Text, useColorModeValue } from "@chakra-ui/react";
 import { BiArrowBack } from "react-icons/bi";
 import {  useNavigate } from "react-router-dom";
-import { useDarkGray } from "../utils/theme";
+import { useDarkGray, useTextColor } from "../utils/theme";
 
 const BackBtn = ({ text }: { text?: string }) => {
   const darkGray = useDarkGray();
   const navigate = useNavigate();
+  const textColor = useTextColor()
   return (
     <>
       <Flex
         onClick={() => navigate(-1)}
-        color={darkGray}
-        _hover={{ cursor: "pointer", color: "gray.800" }}
+        color={textColor}
+        _hover={{ cursor: "pointer", color: '#6096FD' }}
       >
         <Icon h={30} w={30} as={BiArrowBack} />
         {text ? (

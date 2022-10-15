@@ -1,18 +1,153 @@
-import { Text, Button, Flex } from "@chakra-ui/react";
+import { useState } from "react";
 import BackBtn from "../components/BackBtn";
 import PageContainer from "../components/PageContainer";
-import { useDarkGray } from "../utils/theme";
+import { useButtonColor, useDarkGray, useTextColor } from "../utils/theme";
+import {
+  Heading,
+  Text,
+  Flex,
+  Button,
+  Select,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+  VStack,
+} from "@chakra-ui/react";
+import SongCard from "../components/SongCard";
+import { useCart } from "../utils/cart";
 
 const Checkout = () => {
   const darkGray = useDarkGray();
+  const [checkoutColor, setCheckoutColor] = useState("ocean");
+  const buttonColor = useButtonColor();
+  const textColor = useTextColor();
+  const {getCart} = useCart()
+  
   return (
     <>
       <PageContainer>
-        <Flex color={darkGray}>
-          <BackBtn text="Continue Shopping" />
-          
+        <Flex flexDir={{base: 'column', lg: 'row'}} justify={"space-between"} w="100%" h="100%">
+          <Flex color={textColor} w={{base: '100%', lg: "50%"}} flexDir={"column"}>
+            <BackBtn text="Continue Shopping" />
+            <Flex bg={textColor} mt={3} width={"100%"} h={0.1} />
+            <Heading mt={10}>Shopping Cart</Heading>
+            <Text mt={2}>You have 5 items in your cart</Text>
+            <VStack justify={"space-between"} mt={5} h="100%" spacing={8}>
+              {[...Array(5)].map((_, index) => (
+                <SongCard key={index} />
+              ))}
+            </VStack>
+          </Flex>
+          <Flex
+          mt={{base: 10, lg: 0}}
+            justify={"space-between"}
+            flexDir={"column"}
+            width={{base: '100%', lg: 500}}
+            h="100%"
+          >
+            <Flex
+              rounded={5}
+              flexDir={"column"}
+              boxShadow={"md"}
+              bgGradient={
+                checkoutColor === "purple"
+                  ? "linear(to-br, #AAB6FB, #6096FD)"
+                  : checkoutColor === "blue"
+                  ? "linear(to-br, #004E9A, #428CD4)"
+                  : checkoutColor === "ocean"
+                  ? "linear(to-br, #1CA7EC, #1F2F98)"
+                  : "linear(to-br, #56C596, #329D9C)"
+              }
+              width={"100%"}
+              h="90%"
+              p={5}
+              color={"white"}
+            >
+              <Flex justifyContent={"space-between"}>
+                <Heading>Summary</Heading>
+                <Select
+                  color={darkGray}
+                  variant={"filled"}
+                  w={200}
+                  onChange={(e) => setCheckoutColor(e.target.value)}
+                  defaultValue={checkoutColor}
+                >
+                  <option value="ocean">Ocean Gradient</option>
+                  <option value="purple">Purple Gradient</option>
+                  <option value="teal">Teal Gradient</option>
+                  <option value="blue">Blue Gradient</option>
+                </Select>
+              </Flex>
+              <Flex bg={'white'} mt={3} width={"100%"} h={0.1} />
+              <Text mt={3} fontWeight={"700"}>
+                Order Name:{" "}
+                <Text as="span" fontWeight={"400"}>
+                  Elias Wambugu
+                </Text>
+              </Text>
+              <Text fontWeight={"700"}>
+                Duration:{" "}
+                <Text as="span" fontWeight={"400"}>
+                  Last 6 months
+                </Text>
+              </Text>
+              <Text fontWeight={"700"}>
+                Order Number:{" "}
+                <Text fontWeight={"400"} as="span">
+                  123
+                </Text>
+              </Text>
+              <Flex bg={'white'} mt={3} width={"100%"} h={0.1} />
+              <TableContainer mb={5} w="100%" mt={5}>
+                <Table w="100%" size="sm" variant="unstyled">
+                  <Thead>
+                    <Tr>
+                      <Th>QTY</Th>
+                      <Th>ITEM</Th>
+                      <Th>AMT</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {[...Array(5)].map((_, index) => (
+                      <Tr key={index}>
+                        <Td>{index + 1}</Td>
+                        <Td>
+                          <Flex flexDir={"column"}>
+                            <Text fontWeight={"700"}>Ed, Edd, Eddy</Text>
+                            <Text fontWeight={"300"}>JID</Text>
+                          </Flex>
+                        </Td>
+                        <Td>2:36</Td>
+                      </Tr>
+                    ))}
+                  </Tbody>
+                </Table>
+              </TableContainer>
+              <Flex bg={'white'} width={"100%"} h={0.1} />
+              <Flex mt={5} pl={4} mr={58} justify={"space-between"}>
+                <Text fontWeight={"700"}>Total:</Text>
+                <Text>13:00</Text>
+              </Flex>
+              <Text fontWeight="700" alignSelf={"center"}>
+                spotlist.com
+              </Text>
+            </Flex>
+            <Button
+            mt={8}
+              color={"gray.900"}
+              boxShadow={"md"}
+              h={45}
+              rounded={5}
+              bg={buttonColor}
+            >
+              Download
+            </Button>
+          </Flex>
         </Flex>
-        <Button>hi</Button>
       </PageContainer>
     </>
   );

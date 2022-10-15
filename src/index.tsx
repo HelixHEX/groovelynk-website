@@ -6,6 +6,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { UserProvider } from "./utils/UserContext";
 import Checkout from "./pages/Checkout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./utils/CartContext";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -13,12 +14,15 @@ root.render(
   <React.StrictMode>
     <ChakraProvider>
       {/* <UserProvider> */}
-      <Router>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/checkout" element={<Checkout />} />
-        </Routes>
-      </Router>
+      <CartProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/checkout" element={<Checkout />} />
+          </Routes>
+        </Router>
+      </CartProvider>
+  
       {/* </UserProvider> */}
     </ChakraProvider>
   </React.StrictMode>

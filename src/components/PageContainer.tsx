@@ -1,13 +1,23 @@
 import React, { PropsWithChildren } from "react";
-import { Flex } from "@chakra-ui/react";
-import { useLightGray } from "../utils/theme";
+import { Flex, useColorModeValue } from "@chakra-ui/react";
+import { ColorModeSwitcher } from "./ColorModeSwitcher";
 
 const PageContainer: React.FC<PropsWithChildren> = ({ children }) => {
-  const lightGray = useLightGray()
+  const bg = useColorModeValue('#F2F2F2', '#171923')
   return (
     <>
-      <Flex flexDir={'column'} p={8} w="100%" h="auto" minH="100vh" bg={lightGray}>
+      <Flex
+        flexDir={"column"}
+        bg={bg}
+        w="100%"
+        minH="100vh"
+        h='auto'
+        p={8}
+      >
+        <ColorModeSwitcher />
+        <Flex mt={4}>
         {children}
+        </Flex>
       </Flex>
     </>
   );
