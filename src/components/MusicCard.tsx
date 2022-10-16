@@ -7,7 +7,7 @@ import {
   Image,
   Button,
 } from "@chakra-ui/react";
-import { useLightGray } from "../utils/theme";
+import { useDarkGray } from "../utils/theme";
 import React from "react";
 
 type MusicCardProps = {
@@ -24,8 +24,8 @@ const MusicCard = ({
   addToCart,
 }: MusicCardProps) => {
   const Bg = useColorModeValue("white", "#171923");
-  const textColor = useLightGray;
-  const btn = useColorModeValue("6096FD", "#6096FD");
+  const textColor = useDarkGray();
+  const btn = useColorModeValue("#6096FD", "#6096FD");
   return (
     <Box ml={10} mt={5}>
       <Box
@@ -45,7 +45,7 @@ const MusicCard = ({
             src={image}
           />
         </Box>
-        <Stack align={"left"}>
+        <Stack align={"left"} color={textColor}>
           <Heading fontSize={"xl"} fontFamily={"body"} fontWeight={500}>
             {title}
           </Heading>
@@ -54,7 +54,7 @@ const MusicCard = ({
               {description}
             </Text>
           </Stack>
-          <Button colorScheme={"blue"} borderColor="" variant="outline">
+          <Button  variant="outline" borderColor={btn} color={btn} _hover={{ bg: '#6096FD', color: 'white' }}>
             Add To Cart
           </Button>
         </Stack>
