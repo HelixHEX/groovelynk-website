@@ -46,7 +46,7 @@ const MusicCard = () => {
               5 Artists
             </Text>
           </Stack>
-          <Button colorScheme={'blue'} variant="outline">Add To Cart</Button>
+          <Button colorScheme={'blue'} borderColor='' variant="outline">Add To Cart</Button>
         </Stack>
       </Box>
     </Box>

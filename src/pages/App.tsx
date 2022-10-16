@@ -55,7 +55,7 @@ const Musicbox = () => {
               </Button>
             </VStack>
           </Flex>
-          <Flex h="100vh" w={"80%"} bg={Bg} borderRadius="10px">
+          <Flex h="100v%" w={"80%"} bg={Bg} borderRadius="10px">
           <MusicCard />
           </Flex>
         </Flex>
