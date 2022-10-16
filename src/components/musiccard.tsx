@@ -8,10 +8,11 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { useLightGray } from '../utils/theme';
+import React from 'react';
 
 
-export default function ProductSimple() {
-  const Bg = useColorModeValue("white", "#6096FD");
+const MusicCard = () => {
+  const Bg = useColorModeValue('white', '#171923')
   const textColor = useLightGray
   const btn = useColorModeValue("6096FD", "#6096FD");
   return (
@@ -51,3 +52,4 @@ export default function ProductSimple() {
     </Box>
   );
 }
+export default MusicCard;
