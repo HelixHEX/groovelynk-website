@@ -13,7 +13,7 @@ const Musicbox = () => {
         {/* Parent Flex ---------------------- */}
         <Flex w={"100%"} h="100%">
           {/* Button Box Flex ----------------------- */}
-          <Flex h={"100%"} w={"20%"} justify={"right"}>
+          <Flex h={"100%"} >
             <VStack spacing={8} w="160px">
               <Button
                 variant={duration === "month" ? "solid" : "ghost"}
@@ -55,7 +55,7 @@ const Musicbox = () => {
               </Button>
             </VStack>
           </Flex>
-          <Flex h="100v%" w={"80%"} bg={Bg} borderRadius="10px">
+          <Flex h="100vh" w={"100%"} bg={Bg} borderRadius="10px">
           <MusicCard />
           </Flex>
         </Flex>
