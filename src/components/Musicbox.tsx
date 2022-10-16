@@ -1,10 +1,8 @@
 import {
   Flex,
   Button,
-  ButtonGroup,
   useColorModeValue,
-  Spacer,
-  HStack,
+  VStack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import ProductSimple from "./musiccard";
@@ -15,10 +13,11 @@ const Musicbox = () => {
   const Bg = useColorModeValue("white", "#6096FD");
   return (
     <>
-      <Flex w={"100%"} h="100vh">
-        <Flex h={"100vh"} w={"20%"} fontSize="9xl" flexDir={"column"} mt={10}>
-          {/* <ButtonGroup flexDir="column" mt={10}> */}
-          {/* <HStack flexDir={'column'} spacing=> */}
+      {/* Parent Flex ---------------------- */}
+      <Flex w={"100%"} h="100%">
+        {/* Button Box Flex ----------------------- */}
+        <Flex h={"100%"} w={"20%"} justify={"right"} >
+          <VStack spacing={8} w="160px" >
             <Button
               variant={duration === "month" ? "solid" : "ghost"}
               onClick={() => setDuration("month")}
@@ -26,6 +25,9 @@ const Musicbox = () => {
               rounded={0}
               borderTopLeftRadius={5}
               borderBottomLeftRadius={5}
+              size="lg"
+              mt={10}
+              w="100%"
             >
               Last Month
             </Button>
@@ -36,6 +38,8 @@ const Musicbox = () => {
               rounded={0}
               borderTopLeftRadius={5}
               borderBottomLeftRadius={5}
+              size="lg"
+              w="100%"
             >
               Last 6 Months
             </Button>
@@ -47,11 +51,12 @@ const Musicbox = () => {
               rounded={0}
               borderTopLeftRadius={5}
               borderBottomLeftRadius={5}
+              size="lg"
+              w="100%"
             >
               All Time
             </Button>
-          {/* </HStack> */}
-          {/* </ButtonGroup> */}
+          </VStack>
         </Flex>
         <Flex h="100vh" w={"80%"} bg={Bg} borderRadius="10px">
           <ProductSimple />

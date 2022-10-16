@@ -1,21 +1,21 @@
 import {
   Box,
-  Center,
   useColorModeValue,
   Heading,
   Text,
   Stack,
   Image,
-  Flex
+  Button,
 } from '@chakra-ui/react';
+import { useLightGray } from '../utils/theme';
 
-const IMAGE =
-  'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80';
 
 export default function ProductSimple() {
   const Bg = useColorModeValue("white", "#6096FD");
+  const textColor = useLightGray
+  const btn = useColorModeValue("6096FD", "#6096FD");
   return (
-    <Box ml={10} mt={5}>
+    <Box ml={10} mt={5} >
       <Box
         p={6}
         maxW={'330px'}
@@ -26,18 +26,18 @@ export default function ProductSimple() {
         >
         <Box
           rounded={'lg'}
-          height={'250px'}
+          height={'220px'}
           >
           <Image
             rounded={'lg'}
-            height={230}
+            height={200}
             width={220}
             objectFit={'cover'}
-            src={IMAGE}
+            src={require('../assets/images/tracks.jpeg')}
           />
         </Box>
-        <Stack  align={'left'}>
-          <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+        <Stack align={'left'}>
+          <Heading fontSize={'xl'} fontFamily={'body'} fontWeight={500}>
             Top Artists
           </Heading>
           <Stack direction={'row'} align={'center'}>
@@ -45,6 +45,7 @@ export default function ProductSimple() {
               5 Artists
             </Text>
           </Stack>
+          <Button colorScheme={'blue'} variant="outline">Add To Cart</Button>
         </Stack>
       </Box>
     </Box>
