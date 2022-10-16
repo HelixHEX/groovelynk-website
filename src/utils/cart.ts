@@ -12,7 +12,9 @@ export const useCart = () => {
   }
 
   const addToCart = (product:any) => {
-    localStorage.setItem('cart',product)
+    if (!getCart) {
+      localStorage.setItem('cart',product)
+    }
     return
   }
 

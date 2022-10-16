@@ -12,7 +12,7 @@ const Musicbox = () => {
       <PageContainer>
         {/* Parent Flex ---------------------- */}
         <Flex w={"100%"} h="100%">
-          {/* Button Box Flex ----------------------- */}
+          {/* Button Box Flex ---------------------- */}
           <Flex h={"100%"} >
             <VStack spacing={8} w="160px">
               <Button
@@ -55,8 +55,8 @@ const Musicbox = () => {
               </Button>
             </VStack>
           </Flex>
-          <Flex h="100vh" w={"100%"} bg={Bg} borderRadius="10px">
-          <MusicCard />
+          <Flex h="100%" w={"100%"} bg={Bg} borderRadius="10px">
+            <MusicCard />
           </Flex>
         </Flex>
       </PageContainer>

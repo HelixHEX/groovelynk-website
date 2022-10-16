@@ -11,7 +11,7 @@ const PageContainer: React.FC<PropsWithChildren> = ({ children }) => {
         bg={bg}
         w="100%"
         minH="100vh"
-        h='auto'
+        h='100%'
         p={8}
       >
         <ColorModeSwitcher />
