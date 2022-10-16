@@ -35,7 +35,7 @@ const Checkout = () => {
   const [downloading, setDownloading] = useState(false);
   const ref = createRef<any>();
 
-  const download = (image: any, { name = "img", extension = "jpg" } = {}) => {
+  const download = (image: any, { name = "img", extension = "png" } = {}) => {
     const a = document.createElement("a");
     a.href = image;
     a.download = createFileName(extension, name);
