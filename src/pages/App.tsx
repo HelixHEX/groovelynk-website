@@ -1,19 +1,33 @@
-import { Flex, Button, useColorModeValue, VStack, Heading } from "@chakra-ui/react";
+import {
+  Flex,
+  Button,
+  useColorModeValue,
+  VStack,
+  Heading,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import MusicCard from "../components/MusicCard";
 import PageContainer from "../components/PageContainer";
+import { useCart } from "../utils/cart";
 
 const Musicbox = () => {
   // create use states for the buttons so that when one is selected it shows a different page
   const [duration, setDuration] = useState("month");
   const Bg = useColorModeValue("white", "#6096FD");
+  const {addToCart} = useCart()
+
+  const handleAddToCart = ({}) => {
+    let product = {
+      duration
+    }
+  }
   return (
     <>
       <PageContainer>
         {/* Parent Flex ---------------------- */}
         <Flex w={"100%"} h="100%">
-          {/* Button Box Flex ---------------------- */}
-          <Flex h={"100%"} >
+          {/* Button Box Flex ----------------------- */}
+          <Flex h={"100%"}>
             <VStack spacing={8} w="160px">
               <Button
                 variant={duration === "month" ? "solid" : "ghost"}
@@ -55,8 +69,10 @@ const Musicbox = () => {
               </Button>
             </VStack>
           </Flex>
-          <Flex h="100%" w={"100%"} bg={Bg} borderRadius="10px">
-            <MusicCard />
+          <Flex h="87vh" w={"100%"} bg={Bg} borderRadius="10px">
+            <MusicCard title="Top Artists" description="5 Artists" image={require("../assets/images/artists.jpg")} addToCart={() => {}} />
+            <MusicCard title="Top Tracks" description="5 Tracks" image={require("../assets/images/tracks.jpeg")} addToCart={() => {}} />
+            <MusicCard title="Top Genres" description="5 Genres" image={require("../assets/images/genres.png")} addToCart={() => {}} />
           </Flex>
         </Flex>
       </PageContainer>

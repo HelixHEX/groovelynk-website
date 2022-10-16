@@ -7,6 +7,7 @@ import { UserProvider } from "./utils/UserContext";
 import Checkout from "./pages/Checkout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./utils/CartContext";
+import Login from "./pages/Login";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -19,6 +20,7 @@ root.render(
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path='/login' element={<Login />} />
           </Routes>
         </Router>
       </CartProvider>
