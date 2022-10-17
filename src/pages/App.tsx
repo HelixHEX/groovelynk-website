@@ -7,6 +7,7 @@ import { CartContext } from "../contexts/CartContext";
 import { useProduct } from "../utils/products";
 import { UserContext } from "../contexts/UserContext";
 import Login from "./Login";
+import { useNavigate } from "react-router-dom";
 
 const Musicbox = () => {
   // create use states for the buttons so that when one is selected it shows a different page
@@ -14,18 +15,10 @@ const Musicbox = () => {
   const Bg = useColorModeValue("white", "#6096FD");
   const { product: topTracks } = useProduct("tracks", duration);
   const { product: topArtists } = useProduct("artists", duration);
-  // const handleAddToCart = (data: any) => {
-  //   console.log('hi')
-  //   console.log(topTracks)
-  //   let product = {
-  //     duration,
-  //     product: data,
-  //   };
-  //   addToCart(product);
-  // };
   const { setCart } = useContext(CartContext);
   const { user } = useContext<any>(UserContext);
 
+  const navigate = useNavigate();
   return (
     <>
       {user ? (
@@ -84,17 +77,20 @@ const Musicbox = () => {
                   title="Top Artists"
                   description="5 Artists"
                   image={require("../assets/images/artists.jpg")}
-                  addToCart={() =>
+                  addToCart={() =>{
                     setCart({ duration, data: topArtists, type: "artists" })
+                    navigate('/checkout')
+                  }
                   }
                 />
                 <MusicCard
                   title="Top Tracks"
                   description="5 Tracks"
                   image={require("../assets/images/tracks.jpeg")}
-                  addToCart={() =>
-                    setCart({ duration, data: topTracks, type: "tracks" })
-                  }
+                  addToCart={() => {
+                    setCart({ duration, data: topTracks, type: "tracks" });
+                    navigate('/checkout')
+                  }}
                 />
                 {/* <MusicCard title="Top Genres" description="5 Genres" image={require("../assets/images/genres.png")} addToCart={() => {}} /> */}
               </Flex>

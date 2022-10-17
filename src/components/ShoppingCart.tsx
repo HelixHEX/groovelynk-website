@@ -27,14 +27,14 @@ const ShoppingCart = () => {
             {cart ? (
               <Flex
                 justify={"center"}
-                w={23}
-                h={23}
+                w={19}
+                h={19}
                 ml={-3}
                 mt={-1}
                 rounded={100}
                 bg="#6096FD"
               >
-                <Text color="white" alignSelf={"center"}>
+                <Text fontSize={12} color="white" alignSelf={"center"}>
                   1
                 </Text>
               </Flex>

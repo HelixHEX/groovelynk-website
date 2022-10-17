@@ -9,7 +9,9 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { useDarkGray } from "../utils/theme";
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 type MusicCardProps = {
   title: string;
@@ -27,6 +29,10 @@ const MusicCard = ({
   const Bg = useColorModeValue("white", "#171923");
   const textColor = useDarkGray();
   const btn = useColorModeValue("#6096FD", "#6096FD");
+
+  const { cart } = useContext(CartContext);
+
+  const navigate = useNavigate();
   return (
     <Box ml={10} mt={5}>
       <Box
@@ -57,9 +63,26 @@ const MusicCard = ({
           </Stack>
           <Spacer />
           {/* <Spacer /> */}
-          <Button onClick={addToCart} variant="outline" borderColor={btn} color={btn} _hover={{ bg: '#6096FD', color: 'white' }} boxShadow={'md'} >
-            Add To Cart
-          </Button>
+          {!cart ? (
+            <Button
+              onClick={addToCart}
+              variant="outline"
+              borderColor={btn}
+              color={btn}
+              _hover={{ bg: "#6096FD", color: "white" }}
+              boxShadow={"md"}
+            >
+              Add To Cart
+            </Button>
+          ) : (
+            <Text
+              onClick={() => navigate("/checkout")}
+              _hover={{ cursor: "pointer", color: "#6096FD" }}
+              alignSelf="center"
+            >
+              Proceed to checkout
+            </Text>
+          )}
         </Stack>
       </Box>
     </Box>
