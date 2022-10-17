@@ -1,12 +1,13 @@
 import { generateRandomString } from "./helpers";
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
 
 const cookies = new Cookies();
 
-const login = () => {
+export const login = () => {
   const state = generateRandomString(16);
   const scope = "user-read-private user-read-email user-top-read";
-
 
   window.location.href =
     "https://accounts.spotify.com/authorize?" +
@@ -21,10 +22,10 @@ const login = () => {
 
 type logoutProps = {
   setUser: any;
-}
-const logout = (props:logoutProps) => {
-  cookies.remove('access_token');
-  props.setUser(null)
-}
+};
+export const useLogout = (props: logoutProps) => {
+  const { setUser } = useContext<any>(UserContext);
 
-export { login, logout };
+  cookies.remove("access_token");
+  setUser(null);
+};

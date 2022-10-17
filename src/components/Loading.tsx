@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <>
       <Flex
-        bgGradient="linear(to-br, #29DE69, #17803C)"
+        bg='#6096FD'
         width="100%"
         h="100vh"
         justify={"center"}

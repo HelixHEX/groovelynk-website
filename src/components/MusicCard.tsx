@@ -57,7 +57,7 @@ const MusicCard = ({
           </Stack>
           <Spacer />
           {/* <Spacer /> */}
-          <Button variant="outline" borderColor={btn} color={btn} _hover={{ bg: '#6096FD', color: 'white' }} boxShadow={'md'} >
+          <Button onClick={addToCart} variant="outline" borderColor={btn} color={btn} _hover={{ bg: '#6096FD', color: 'white' }} boxShadow={'md'} >
             Add To Cart
           </Button>
         </Stack>

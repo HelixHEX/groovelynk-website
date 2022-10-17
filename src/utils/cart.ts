@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 //get items from localstorage in cart
 export const useCart = () => {
+  const [cart, setCart] = useState<any>({})
+
   const getCart = () => {
-    return localStorage.getItem('cart')
+    setCart(localStorage.getItem('cart'))
+    return cart
   }
 
   const deleteCart = () => {
     localStorage.removeItem('cart')
+    setCart({})
     return
   }
 
@@ -15,10 +19,11 @@ export const useCart = () => {
     if (!getCart) {
       localStorage.setItem('cart',product)
     }
-    return
+    setCart(product)
   }
 
   return {
+    cart,
     getCart,
     deleteCart,
     addToCart

@@ -14,18 +14,17 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      {/* <UserProvider> */}
-      <CartProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path='/login' element={<Login />} />
-          </Routes>
-        </Router>
-      </CartProvider>
-  
-      {/* </UserProvider> */}
+      <UserProvider>
+        <CartProvider>
+          <Router>
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </Router>
+        </CartProvider>
+      </UserProvider>
     </ChakraProvider>
   </React.StrictMode>
 );

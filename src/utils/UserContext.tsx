@@ -10,7 +10,15 @@ import Loading from "../components/Loading";
 // import { Flex } from "@chakra-ui/react";
 const cookies = new Cookies();
 
-const UserContext = createContext({});
+type UserContextProps = {
+  user: any;
+  setUser: (user: any) => void;
+}
+
+const UserContext = createContext<UserContextProps>({
+  user: null,
+  setUser: () => {},
+});
 
 const UserProvider = (props: PropsWithChildren) => {
   const [user, setUser] = useState<any>(null);
@@ -41,7 +49,7 @@ const UserProvider = (props: PropsWithChildren) => {
   }, []);
 
   return (
-    <UserContext.Provider value={[user, setUser]}>
+    <UserContext.Provider value={{user, setUser}}>
        {loading ? <Loading /> : props.children}
     </UserContext.Provider>
   );

@@ -46,12 +46,12 @@ const Checkout = () => {
   const downloadScreenshot = () => {
     takeScreenShot(ref.current).then(download);
   };
-  const selectTextColor = useColorModeValue('#656565', 'gray.900')
-  const selectBg = useColorModeValue('white', '#6096FD')
+  const selectTextColor = useColorModeValue("#656565", "gray.900");
+  const selectBg = useColorModeValue("white", "#6096FD");
   return (
     <>
       <PageContainer>
-      <ColorModeSwitcher />
+        <ColorModeSwitcher />
 
         <Flex
           flexDir={{ base: "column", lg: "row" }}
