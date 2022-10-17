@@ -23,7 +23,7 @@ export const useLogout = () => {
   const { setUser } = useContext<any>(UserContext);
 
   const logout = () => {
-    cookies.remove("token");
+    cookies.remove("access_token");
     setUser(null);
   }
 
