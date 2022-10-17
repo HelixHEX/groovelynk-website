@@ -8,8 +8,6 @@ const cookies = new Cookies();
 export const login = () => {
   const state = generateRandomString(16);
   const scope = "user-read-private user-read-email user-top-read";
-  console.log(process.env.REACT_APP_SPOTIFY_CLIENT_ID)
-  console.log(process.env.REACT_APP_API_URL)
   window.location.href =
     "https://accounts.spotify.com/authorize?" +
     new URLSearchParams({
