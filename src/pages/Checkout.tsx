@@ -1,7 +1,7 @@
 import { createRef, useState } from "react";
 import BackBtn from "../components/BackBtn";
 import PageContainer from "../components/PageContainer";
-import { useButtonColor, useDarkGray, useTextColor } from "../utils/theme";
+import { useButtonColor, useTextColor } from "../utils/theme";
 import {
   Heading,
   Text,
@@ -19,21 +19,18 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import SongCard from "../components/SongCard";
-import { useCart } from "../utils/cart";
 import { useScreenshot, createFileName } from "use-react-screenshot";
 import { ColorModeSwitcher } from "../components/ColorModeSwitcher";
 
 const Checkout = () => {
-  const darkGray = useDarkGray();
   const [checkoutColor, setCheckoutColor] = useState("ocean");
   const buttonColor = useButtonColor();
   const textColor = useTextColor();
-  const { getCart } = useCart();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_image, takeScreenShot] = useScreenshot({
     type: "image/jpeg",
     quality: 1.0,
   });
-  const [downloading, setDownloading] = useState(false);
   const ref = createRef<any>();
 
   const download = (image: any, { name = "img", extension = "png" } = {}) => {

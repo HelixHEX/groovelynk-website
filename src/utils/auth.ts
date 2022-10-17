@@ -20,9 +20,6 @@ export const login = () => {
     }).toString();
 };
 
-type logoutProps = {
-  setUser: any;
-};
 export const useLogout = () => {
   const { setUser } = useContext<any>(UserContext);
 
