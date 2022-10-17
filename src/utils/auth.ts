@@ -25,8 +25,9 @@ export const useLogout = () => {
   const navigate = useNavigate()
   const logout = () => {
     cookies.remove("access_token");
+    // cookies.removeA
     setUser(null);
-    navigate('/')
+    // navigate('/');
 
   }
 
