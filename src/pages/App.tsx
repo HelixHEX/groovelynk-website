@@ -3,7 +3,6 @@ import React, { useContext, useState } from "react";
 import MusicCard from "../components/MusicCard";
 import Navbar from "../components/Navbar";
 import PageContainer from "../components/PageContainer";
-import { useCart } from "../utils/cart";
 import { CartContext } from "../utils/CartContext";
 import { useProduct } from "../utils/products";
 import { UserContext } from "../utils/UserContext";
@@ -14,7 +13,6 @@ const Musicbox = () => {
   // create use states for the buttons so that when one is selected it shows a different page
   const [duration, setDuration] = useState("month");
   const Bg = useColorModeValue("white", "#6096FD");
-  const { addToCart } = useCart();
   const { product: topTracks } = useProduct("tracks");
   const { product: topArtists } = useProduct("artists");
   // const handleAddToCart = (data: any) => {

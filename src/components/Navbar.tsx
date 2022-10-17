@@ -17,12 +17,17 @@ import { useColorModeValue } from "@chakra-ui/react";
 import { useDarkGray } from "../utils/theme";
 import ShoppingCart from "./ShoppingCart";
 import { useLogout } from "../utils/auth";
+import { useContext } from "react";
+import { UserContext } from "../utils/UserContext";
 const Navbar = () => {
   const lightBlue = "#6096FD";
   const bg = useColorModeValue("#F2F2F2", "#171923");
   const textColor = useDarkGray();
   const { colorMode, toggleColorMode } = useColorMode();
-  const { logout } = useLogout();
+  const {logout} = useLogout();
+
+  const {user} = useContext(UserContext);
+  
   return (
     <>
       <Flex bg={bg} flexDir={"row"} justify="space-between" pt={2} mb={-8}>
