@@ -1,44 +1,36 @@
-import { ReactNode } from "react";
 import {
-  Box,
+  Icon,
   Flex,
-  Avatar,
-  Link,
-  Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
   MenuDivider,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  useColorMode,
-  Center,
 } from "@chakra-ui/react";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+import React from "react";
+import { CiShoppingCart } from "react-icons/ci";
 
 const ShoppingCart = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-     
+      <Flex mr={2}>
+        <Menu>
+          <MenuButton>
+            <Icon
+              _hover={{ color: "blue.500", cursor: "pointer" }}
+              as={CiShoppingCart}
+              w={7}
+              h={7}
+            />
+          </MenuButton>
+          <MenuList>
+            <MenuItem>Tbh Idk what to put here</MenuItem>
+          </MenuList>
+        </Menu>
+      </Flex>
     </>
   );
 };

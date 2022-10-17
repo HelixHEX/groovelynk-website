@@ -1,4 +1,3 @@
-/* eslint-disable no-lone-blocks */
 import {
   Avatar,
   Box,
@@ -14,10 +13,9 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { FiBell, FiChevronDown } from "react-icons/fi";
-import { IconType } from "react-icons";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { useColorModeValue } from "@chakra-ui/react";
 import { useDarkGray } from "../utils/theme";
+import ShoppingCart from "./ShoppingCart";
 
 const Navbar = () => {
   const lightBlue = "#6096FD";
@@ -33,12 +31,7 @@ const Navbar = () => {
         </Flex>
         <Flex bg={bg} justify={"end"} textColor={textColor} mr={8}>
           <HStack>
-            {/* <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          icon={<FiBell />}
-        /> */}
+            <ShoppingCart />
             <Flex>
               <Menu>
                 <MenuButton
@@ -86,43 +79,3 @@ const Navbar = () => {
 
 export default Navbar;
 
-{
-  /* <Flex mb={-8} mt={2} mr={8} textColor={textColor}>
-          <Menu>
-            <MenuButton
-              as={Button}
-              rounded={"full"}
-              variant={"link"}
-              cursor={"pointer"}
-            >
-              <Avatar
-                size={"md"}
-                src={"https://avatars.dicebear.com/api/male/username.svg"}
-              />
-            </MenuButton>
-            <MenuList alignItems={"center"}>
-              <br />
-              <Center>
-                <Avatar
-                  size={"2xl"}
-                  src={"https://avatars.dicebear.com/api/male/username.svg"}
-                />
-              </Center>
-              <br />
-              <Center>
-                <p>Username</p>
-              </Center>
-              <br />
-              <MenuDivider />
-              <MenuItem>Your Servers</MenuItem>
-              <MenuItem>Account Settings</MenuItem>
-              <MenuItem onClick={toggleColorMode}>
-                  Toggle {colorMode === "light" ? "Dark" : "Light"}
-              </MenuItem>
-            </MenuList>
-          </Menu>
-          <Center ml={2}>
-            <p>Elias</p>
-          </Center>
-        </Flex> */
-}
