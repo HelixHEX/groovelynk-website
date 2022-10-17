@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useContext } from "react";
-import { UserContext } from "../utils/UserContext";
+import { UserContext } from "../contexts/UserContext";
 // import { logout } from "../utils/auth";
 
 const Navbar = () => {

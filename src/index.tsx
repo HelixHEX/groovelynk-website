@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import App from "./pages/App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
-import { UserProvider } from "./utils/UserContext";
+import { UserProvider } from "./contexts/UserContext";
 import Checkout from "./pages/Checkout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./utils/CartContext";
+import { CartProvider } from "./contexts/CartContext";
 import Login from "./pages/Login";
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -1,7 +1,7 @@
 import { generateRandomString } from "./helpers";
 import Cookies from "universal-cookie";
 import { useContext } from "react";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../contexts/UserContext";
 
 const cookies = new Cookies();
 

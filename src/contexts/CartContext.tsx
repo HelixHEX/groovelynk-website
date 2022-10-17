@@ -20,13 +20,18 @@ const CartContext = createContext<CartContextProps>({
 const CartProvider = (props: PropsWithChildren) => {
   const [cart, updateCart] = useState<any>(null);
 
-  const setCart = ({ product }: { product: any }) => {
+  const setCart = (product:any) => {
     updateCart(product);
+    localStorage.setItem("cart", JSON.stringify(product));
   };
 
   const emptyCart = () => {
     updateCart(null);
   };
+
+  useEffect(() => {
+    console.log(cart)
+  }, [cart])
 
   useEffect(() => {
     const cart = localStorage.getItem("cart");

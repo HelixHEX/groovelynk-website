@@ -1,7 +1,7 @@
 import { Button, Text } from "@chakra-ui/react";
 import { useContext } from "react";
 // import { logout } from "../utils/auth";
-import { UserContext } from "../utils/UserContext";
+import { UserContext } from "../contexts/UserContext";
 import Cookies from 'universal-cookie';
 
 const Order = () => {

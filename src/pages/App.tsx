@@ -3,18 +3,17 @@ import React, { useContext, useState } from "react";
 import MusicCard from "../components/MusicCard";
 import Navbar from "../components/Navbar";
 import PageContainer from "../components/PageContainer";
-import { CartContext } from "../utils/CartContext";
+import { CartContext } from "../contexts/CartContext";
 import { useProduct } from "../utils/products";
-import { UserContext } from "../utils/UserContext";
+import { UserContext } from "../contexts/UserContext";
 import Login from "./Login";
-
 
 const Musicbox = () => {
   // create use states for the buttons so that when one is selected it shows a different page
-  const [duration, setDuration] = useState("month");
+  const [duration, setDuration] = useState("short_term");
   const Bg = useColorModeValue("white", "#6096FD");
-  const { product: topTracks } = useProduct("tracks");
-  const { product: topArtists } = useProduct("artists");
+  const { product: topTracks } = useProduct("tracks", duration);
+  const { product: topArtists } = useProduct("artists", duration);
   // const handleAddToCart = (data: any) => {
   //   console.log('hi')
   //   console.log(topTracks)
@@ -24,8 +23,8 @@ const Musicbox = () => {
   //   };
   //   addToCart(product);
   // };
-  const {setCart} = useContext(CartContext)
-  const {user} = useContext<any>(UserContext);
+  const { setCart } = useContext(CartContext);
+  const { user } = useContext<any>(UserContext);
 
   return (
     <>
@@ -39,9 +38,9 @@ const Musicbox = () => {
               <Flex h={"100%"} mr={10}>
                 <VStack spacing={8} w="160px">
                   <Button
-                    variant={duration === "month" ? "solid" : "ghost"}
-                    onClick={() => setDuration("month")}
-                    bg={duration === "month" ? Bg : "none"}
+                    variant={duration === "short_term" ? "solid" : "ghost"}
+                    onClick={() => setDuration("short_term")}
+                    bg={duration === "short_term" ? Bg : "none"}
                     size="lg"
                     mt={10}
                     w="100%"
@@ -50,9 +49,9 @@ const Musicbox = () => {
                     Last Month
                   </Button>
                   <Button
-                    variant={duration === "sixmonths" ? "solid" : "ghost"}
-                    onClick={() => setDuration("sixmonths")}
-                    bg={duration === "sixmonths" ? Bg : "none"}
+                    variant={duration === "medium_term" ? "solid" : "ghost"}
+                    onClick={() => setDuration("medium_term")}
+                    bg={duration === "medium_term" ? Bg : "none"}
                     size="lg"
                     w="100%"
                     _hover={{ bg: "#6096FD", color: "white" }}
@@ -61,9 +60,9 @@ const Musicbox = () => {
                   </Button>
 
                   <Button
-                    variant={duration === "alltime" ? "solid" : "ghost"}
-                    onClick={() => setDuration("alltime")}
-                    bg={duration === "alltime" ? Bg : "none"}
+                    variant={duration === "long_term" ? "solid" : "ghost"}
+                    onClick={() => setDuration("long_term")}
+                    bg={duration === "long_term" ? Bg : "none"}
                     size="lg"
                     _hover={{ bg: "#6096FD", color: "white" }}
                     w="100%"
@@ -85,13 +84,17 @@ const Musicbox = () => {
                   title="Top Artists"
                   description="5 Artists"
                   image={require("../assets/images/artists.jpg")}
-                  addToCart={() => setCart(topArtists)}
+                  addToCart={() =>
+                    setCart({ duration, data: topArtists, type: "artists" })
+                  }
                 />
                 <MusicCard
                   title="Top Tracks"
                   description="5 Tracks"
                   image={require("../assets/images/tracks.jpeg")}
-                  addToCart={() => setCart(topTracks)}
+                  addToCart={() =>
+                    setCart({ duration, data: topTracks, type: "tracks" })
+                  }
                 />
                 {/* <MusicCard title="Top Genres" description="5 Genres" image={require("../assets/images/genres.png")} addToCart={() => {}} /> */}
               </Flex>
