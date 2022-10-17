@@ -47,7 +47,7 @@ const Navbar = () => {
                 >
                   <HStack>
                     <Avatar
-                      size={"md"}
+                      size={"sm"}
                       src={image}
                     />
                     <VStack
@@ -68,7 +68,7 @@ const Navbar = () => {
                   borderColor={useColorModeValue("gray.200", "gray.700")}
                 >
                   <MenuItem onClick={toggleColorMode}>
-                    Toggle {colorMode === "light" ? "Dark" : "Light"}
+                    {colorMode === "light" ? "Dark" : "Light"} mode
                   </MenuItem>
                   <MenuItem onClick={logout}>Log Out</MenuItem>
                 </MenuList>
