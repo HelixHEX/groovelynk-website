@@ -2,6 +2,7 @@ import { generateRandomString } from "./helpers";
 import Cookies from "universal-cookie";
 import { useContext } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -21,10 +22,12 @@ export const login = () => {
 
 export const useLogout = () => {
   const { setUser } = useContext<any>(UserContext);
-
+  const navigate = useNavigate()
   const logout = () => {
     cookies.remove("access_token");
     setUser(null);
+    navigate('/')
+
   }
 
   return {logout};
