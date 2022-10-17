@@ -1,6 +1,5 @@
 import React, { PropsWithChildren } from "react";
 import { Flex, useColorModeValue } from "@chakra-ui/react";
-import { ColorModeSwitcher } from "./ColorModeSwitcher";
 
 const PageContainer: React.FC<PropsWithChildren> = ({ children }) => {
   const bg = useColorModeValue('#F2F2F2', '#171923')
@@ -14,7 +13,6 @@ const PageContainer: React.FC<PropsWithChildren> = ({ children }) => {
         h='100%'
         p={8}
       >
-        <ColorModeSwitcher />
         <Flex mt={4}>
         {children}
         </Flex>
