@@ -27,7 +27,8 @@ const Navbar = () => {
   const {logout} = useLogout();
 
   const {user} = useContext(UserContext);
-
+  const image = user?.images[0].url;
+  
   return (
     <>
       <Flex bg={bg} flexDir={"row"} justify="space-between" pt={2} mb={-8}>
@@ -47,9 +48,7 @@ const Navbar = () => {
                   <HStack>
                     <Avatar
                       size={"md"}
-                      src={
-                        "https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
-                      }
+                      src={image}
                     />
                     <VStack
                       display={{ base: "none", md: "flex" }}
@@ -57,7 +56,7 @@ const Navbar = () => {
                       spacing="1px"
                       ml="2"
                     >
-                      <Text fontSize="sm"> Elias </Text>
+                      <Text fontSize="sm"> {user.display_name} </Text>
                     </VStack>
                     <Box display={{ base: "none", md: "flex" }}>
                       <FiChevronDown />

@@ -9,12 +9,14 @@ type CartContextProps = {
   cart: any;
   setCart: (product: any) => void;
   emptyCart: () => void;
+  getCart: () => any;
 };
 
 const CartContext = createContext<CartContextProps>({
   cart: null,
   setCart: () => {},
   emptyCart: () => {},
+  getCart: () => {},
 });
 
 const CartProvider = (props: PropsWithChildren) => {
@@ -29,9 +31,9 @@ const CartProvider = (props: PropsWithChildren) => {
     updateCart(null);
   };
 
-  useEffect(() => {
-    console.log(cart)
-  }, [cart])
+  const getCart = () => {
+    return cart;
+  };
 
   useEffect(() => {
     const cart = localStorage.getItem("cart");
@@ -43,7 +45,7 @@ const CartProvider = (props: PropsWithChildren) => {
   }, []);
 
   return (
-    <CartContext.Provider value={{ cart, setCart, emptyCart }}>
+    <CartContext.Provider value={{ cart, setCart, emptyCart, getCart }}>
       {props.children}
     </CartContext.Provider>
   );
