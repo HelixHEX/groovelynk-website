@@ -1,12 +1,7 @@
-import {
-  Flex,
-  Button,
-  useColorModeValue,
-  VStack,
-  Heading,
-} from "@chakra-ui/react";
+import { Flex, Button, useColorModeValue, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import MusicCard from "../components/MusicCard";
+import Navbar from "../components/Navbar";
 import PageContainer from "../components/PageContainer";
 
 const Musicbox = () => {
@@ -15,6 +10,7 @@ const Musicbox = () => {
   const Bg = useColorModeValue("white", "#6096FD");
   return (
     <>
+      <Navbar />
       <PageContainer>
         {/* Parent Flex ---------------------- */}
         <Flex w={"100%"} h="100%">
@@ -55,12 +51,14 @@ const Musicbox = () => {
               </Button>
             </VStack>
           </Flex>
+          {/* Music Card Flex ----------------------- */}
           <Flex
             h="87vh"
             w={"100%"}
             bg={Bg}
             borderRadius="10px"
             justify={"center"}
+            align={"center"}
           >
             <MusicCard
               title="Top Artists"

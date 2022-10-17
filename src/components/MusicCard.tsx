@@ -6,6 +6,7 @@ import {
   Stack,
   Image,
   Button,
+  Spacer,
 } from "@chakra-ui/react";
 import { useDarkGray } from "../utils/theme";
 import React from "react";
@@ -36,7 +37,7 @@ const MusicCard = ({
         rounded={"lg"}
         boxShadow={"2xl"}
       >
-        <Box rounded={"lg"} height={"220px"}>
+        <Box rounded={"lg"} height={"240px"}>
           <Image
             rounded={"lg"}
             height={200}
@@ -45,16 +46,18 @@ const MusicCard = ({
             src={image}
           />
         </Box>
-        <Stack align={"left"} color={textColor}>
-          <Heading fontSize={"xl"} fontFamily={"body"} fontWeight={500}>
+        <Stack align={"left"} color={textColor} mt={-8}>
+          <Heading fontSize={"xl"} fontFamily={"body"} fontWeight={600}>
             {title}
           </Heading>
           <Stack direction={"row"} align={"center"}>
-            <Text fontWeight={800} fontSize={"l"}>
+            <Text fontSize={"l"} mt={-2}>
               {description}
             </Text>
           </Stack>
-          <Button  variant="outline" borderColor={btn} color={btn} _hover={{ bg: '#6096FD', color: 'white' }}>
+          <Spacer />
+          {/* <Spacer /> */}
+          <Button variant="outline" borderColor={btn} color={btn} _hover={{ bg: '#6096FD', color: 'white' }} boxShadow={'md'} >
             Add To Cart
           </Button>
         </Stack>

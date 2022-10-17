@@ -21,6 +21,7 @@ import {
 import SongCard from "../components/SongCard";
 import { useCart } from "../utils/cart";
 import { useScreenshot, createFileName } from "use-react-screenshot";
+import { ColorModeSwitcher } from "../components/ColorModeSwitcher";
 
 const Checkout = () => {
   const darkGray = useDarkGray();
@@ -50,6 +51,8 @@ const Checkout = () => {
   return (
     <>
       <PageContainer>
+      <ColorModeSwitcher />
+
         <Flex
           flexDir={{ base: "column", lg: "row" }}
           justify={"space-between"}
