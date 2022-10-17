@@ -25,7 +25,7 @@ const UserProvider = (props: PropsWithChildren) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const access_token = cookies.get("access_token");
-    console.log(access_token)
+    console.log(cookies.getAll())
     if (access_token) {
       axios
         .get(`${process.env.REACT_APP_API_URL}/user/me?access_token=${access_token}`)
