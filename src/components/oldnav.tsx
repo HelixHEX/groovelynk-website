@@ -6,7 +6,6 @@ import {
   Menu,
   MenuButton,
   MenuList,
-  MenuItem,
   MenuDivider,
   useColorModeValue,
   Stack,
