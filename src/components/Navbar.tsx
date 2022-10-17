@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <>
       <Flex bg={bg}>
-        <Heading mt={3} ml={10} mb={-12} color={lightBlue}>Spotlist.</Heading>
+        <Heading mt={3} ml={8} mb={-12} color={lightBlue}>Spotlist.</Heading>
         <ColorModeSwitcher  />
       </Flex>
     </>
