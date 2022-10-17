@@ -16,13 +16,13 @@ import { FiChevronDown } from "react-icons/fi";
 import { useColorModeValue } from "@chakra-ui/react";
 import { useDarkGray } from "../utils/theme";
 import ShoppingCart from "./ShoppingCart";
-
+import { useLogout } from "../utils/auth";
 const Navbar = () => {
   const lightBlue = "#6096FD";
   const bg = useColorModeValue("#F2F2F2", "#171923");
   const textColor = useDarkGray();
   const { colorMode, toggleColorMode } = useColorMode();
-
+  const {logout} = useLogout();
   return (
     <>
       <Flex bg={bg} flexDir={"row"} justify="space-between" pt={2} mb={-8}>
@@ -63,7 +63,7 @@ const Navbar = () => {
                   bg={useColorModeValue("white", "gray.900")}
                   borderColor={useColorModeValue("gray.200", "gray.700")}
                 >
-                  <MenuItem >Log Out</MenuItem>
+                  <MenuItem onClick={logout}>Log Out</MenuItem>
                   <MenuItem onClick={toggleColorMode}>
                     Toggle {colorMode === "light" ? "Dark" : "Light"}
                   </MenuItem>

@@ -16,7 +16,7 @@ import {
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useContext } from "react";
 import { UserContext } from "../utils/UserContext";
-import { useLogout } from "../utils/auth";
+// import { logout } from "../utils/auth";
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
