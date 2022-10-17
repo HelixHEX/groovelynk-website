@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import MusicCard from "../components/MusicCard";
 import Navbar from "../components/Navbar";
 import PageContainer from "../components/PageContainer";
-import Nav from "../components/ShoppingCart";
 
 const Musicbox = () => {
   // create use states for the buttons so that when one is selected it shows a different page

@@ -5,10 +5,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
 } from "@chakra-ui/react";
 import React from "react";
 import { CiShoppingCart } from "react-icons/ci";

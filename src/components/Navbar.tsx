@@ -12,7 +12,7 @@ import {
   Heading,
   useColorMode,
 } from "@chakra-ui/react";
-import { FiBell, FiChevronDown } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi";
 import { useColorModeValue } from "@chakra-ui/react";
 import { useDarkGray } from "../utils/theme";
 import ShoppingCart from "./ShoppingCart";
