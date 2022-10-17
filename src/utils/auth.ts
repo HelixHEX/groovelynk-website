@@ -23,9 +23,13 @@ export const login = () => {
 type logoutProps = {
   setUser: any;
 };
-export const useLogout = (props: logoutProps) => {
+export const useLogout = () => {
   const { setUser } = useContext<any>(UserContext);
 
-  cookies.remove("access_token");
-  setUser(null);
+  const logout = () => {
+    cookies.remove("token");
+    setUser(null);
+  }
+
+  return {logout};
 };
