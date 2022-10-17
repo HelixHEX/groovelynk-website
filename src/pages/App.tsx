@@ -8,6 +8,7 @@ import { useProduct } from "../utils/products";
 import { UserContext } from "../contexts/UserContext";
 import Login from "./Login";
 import { useNavigate } from "react-router-dom";
+import './index.css'
 
 const Musicbox = () => {
   // create use states for the buttons so that when one is selected it shows a different page
@@ -66,13 +67,15 @@ const Musicbox = () => {
               </Flex>
               {/* Music Card Flex ----------------------- */}
               <Flex
-                h="87vh"
-                w={"100%"}
-                bg={Bg}
+                // h="87vh"
+                // w={"100%"}
+                // bg={Bg}
                 borderRadius="10px"
                 justify={"center"}
                 align={"center"}
+                className='example-box'
               >
+                <div className="background-shapes" />
                 <MusicCard
                   title="Top Artists"
                   description="5 Artists"
