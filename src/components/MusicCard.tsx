@@ -37,6 +37,7 @@ const MusicCard = ({
     <Box ml={10} mt={5}>
       <Box
         p={6}
+        zIndex={2}
         maxW={"330px"}
         w={"full"}
         bg={Bg}

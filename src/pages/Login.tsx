@@ -1,7 +1,7 @@
 import { Button, Flex, Heading, useColorModeValue } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../components/ColorModeSwitcher";
 import { login } from "../utils/auth";
-
+import { ReactComponent as SVG } from "../assets/images/music.svg";
 const Login = () => {
   const bg = useColorModeValue("#F2F2F2", "#171923");
   const smalellerBg = useColorModeValue("white", "black");
@@ -20,13 +20,17 @@ const Login = () => {
           bg={smalellerBg}
         >
           <Heading color="#6096FD">Spotlist.</Heading>
-          <Flex justify="center" w="100%" h="100%">
+          <Flex flexDir={"column"} alignSelf="center" w="100%" h="100%">
+            <Flex alignSelf={"center"} mt={-150} w={{base: 300, md: 400}} h={{base: 300, md: 400}}>
+              <SVG />
+            </Flex>
             <Button
+              mt={{base: 150,md: 50}}
+              alignSelf="center"
               bg={btnBg}
               rounded={100}
-              width={400}
+              width={{base: 300, md: 400}}
               height={[70, 70, 85]}
-              alignSelf={"center"}
               onClick={() => login()}
               fontSize={[15, 20, 25]}
               color="#6096FD"
